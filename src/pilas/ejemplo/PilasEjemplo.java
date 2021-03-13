@@ -13,7 +13,7 @@ package pilas.ejemplo;
 
 class nodo{
     String dato;
-    nodo down;
+    nodo next;
     nodo(){
     }
     nodo(String valor){
@@ -34,7 +34,7 @@ class pila{
         if (this.isEmpty()){
             top = elemento;
         }else{
-            elemento.down = this.top;
+            elemento.next = this.top;
             this.top = elemento;
         }
     }
@@ -43,7 +43,7 @@ class pila{
             nodo temp = new nodo();
             //System.out.println("Sale de La Pila: " + this.top.dato);
             temp.dato = this.top.dato; // asigno los datos de top al nodo temporal
-            this.top = this.top.down;
+            this.top = this.top.next;
             return temp;
         }else{
             System.out.println("Pila Vacía");
