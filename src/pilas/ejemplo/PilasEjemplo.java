@@ -23,25 +23,24 @@ class nodo{
 class pila{
     nodo top;
     pila aux;
-    boolean isEmpty(){
-        if(top == null){
+    boolean isEmpty(){ // comprobar si existen elementos en la pila o no
+        if (top == null){ // si top esta asignado es porque existe un elemento al menos
             return true;
         }else{
             return false;
         }
     }
-    void push(nodo elemento){
-        if (this.isEmpty()){
+    void push(nodo elemento){ // insertar un elemento nuevo al tope de la pila
+        if (this.isEmpty()){ // Si no existe nada almacenado en la pila asigna a top el elemento entrante
             top = elemento;
-        }else{
-            elemento.next = this.top;
+        }else{ // si ya existen elementos agregados se adjuntan los elementos actuales de la pila al
+            elemento.next = this.top; // nodo que esta entrando, y este elemento pasa a ser TOP
             this.top = elemento;
         }
     }
     nodo pop(){
-        if (this.top!=null){
+        if (!this.isEmpty()){
             nodo temp = new nodo();
-            //System.out.println("Sale de La Pila: " + this.top.dato);
             temp.dato = this.top.dato; // asigno los datos de top al nodo temporal
             this.top = this.top.next;
             return temp;
@@ -55,6 +54,7 @@ class pila{
         while (this.top!=null){
             if (this.top.dato.equals(valor)) {
                 System.out.println("Eliminado " + this.pop().dato);
+                break;
             }else{
             aux.push(this.pop()); // paso todos los elementos existentes de "this" a "aux"
             }
@@ -86,7 +86,6 @@ public class PilasEjemplo {
      */
     public static void main(String[] args) {
         pila pi = new pila();
-        pila aux = new pila();
         pi.push(new nodo("A"));
         pi.push(new nodo("B"));
         pi.push(new nodo("C"));
