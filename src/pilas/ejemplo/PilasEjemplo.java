@@ -24,11 +24,7 @@ class pila{
     nodo top;
     pila aux;
     boolean isEmpty(){ // comprobar si existen elementos en la pila o no
-        if (top == null){ // si top esta asignado es porque existe un elemento al menos
-            return true;
-        }else{
-            return false;
-        }
+        return top == null;// si top esta asignado es porque existe un elemento al menos
     }
     void push(nodo elemento){ // insertar un elemento nuevo al tope de la pila
         if (this.isEmpty()){ // Si no existe nada almacenado en la pila asigna a top el elemento entrante
